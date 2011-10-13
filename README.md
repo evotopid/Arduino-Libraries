@@ -7,6 +7,12 @@ Of course there may be many things to increase, but if you find something
 like this just fill out an Issue.
 Please note that some doc will come soon.
 
+Documentation
+=============
+
+For the documentation you will need [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
+Then run: ```doxygen DOXYFILE``` and your documentation will be created.
+
 Libraries
 =========
 
