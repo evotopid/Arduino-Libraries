@@ -1,5 +1,6 @@
 Button	KEYWORD1
 getState	KEYWORD2
+getStateRaw	KEYWORD2
 waitUntilPressed	KEYWORD2
 waitUntilReleased	KEYWORD2
 waitUntilTouched	KEYWORD2
