@@ -47,6 +47,14 @@ class Button
         bool getState();
         
         /**
+         * @brief Returns the current raw state of the button.
+         * @details If the current state of the button is pressed,
+         * than will be returned HIGH, otherwise it will be LOW.
+         * @return int
+         */
+        int getStateRaw();
+        
+        /**
          * @brief Waits until the button is pressed.
          * @details This function stops the current execution of
          * code, until the user presses the button down.

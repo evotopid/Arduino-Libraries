@@ -32,9 +32,9 @@ Button::Button(int pin)
     _pin = pin;
 }
 
-bool Button::getState()
+bool Button::getState(bool raw=false)
 {
-    if (digitalRead(_pin) == HIGH)
+    if (this->getStateRaw() == HIGH)
     {
         return true;
     }
@@ -42,6 +42,11 @@ bool Button::getState()
     {
         return false;
     }
+}
+
+int Button::getStateRaw()
+{
+    return digitalRead(_pin);
 }
 
 void Button::waitUntilPressed()
