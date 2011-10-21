@@ -40,7 +40,7 @@ class Button
         
         /**
          * @brief Returns the current state of the button.
-         * @details If the current state of the button is pressed,
+         * @details If the current state of the button is HIGH,
          * than will be returned true, otherwise it will be false.
          * @return bool
          */
@@ -48,8 +48,8 @@ class Button
         
         /**
          * @brief Returns the current raw state of the button.
-         * @details If the current state of the button is pressed,
-         * than will be returned HIGH, otherwise it will be LOW.
+         * @details If the current state of the button is HIGH,
+         * than will be returned HIGH, if it's LOW, LOW will be returned.
          * @return int
          */
         int getStateRaw();
