@@ -64,9 +64,9 @@ int Button::getStateRaw()
     }
 }
 
-void Button::waitUntilPressed(bool filterNoise, int delayTime)
+void Button::waitUntilPressed(bool debounce, int delayTime)
 {
-    if (filterNoise)
+    if (debounce)
     {
         bool statesBuffer[8] = {false, false, false, false, false, false, false, false};
         
@@ -95,9 +95,9 @@ void Button::waitUntilPressed(bool filterNoise, int delayTime)
     }
 }
 
-void Button::waitUntilReleased(bool filterNoise, int delayTime)
+void Button::waitUntilReleased(bool debounce, int delayTime)
 {
-    if (filterNoise)
+    if (debounce)
     {
         bool statesBuffer[8] = {true, true, true, true, true, true, true, true};
         
@@ -126,8 +126,8 @@ void Button::waitUntilReleased(bool filterNoise, int delayTime)
     }
 }
 
-void Button::waitUntilTouched(bool filterNoise, int delayTime)
+void Button::waitUntilTouched(bool debounce, int delayTime)
 {
-    this->waitUntilPressed(filterNoise, delayTime);
-    this->waitUntilReleased(filterNoise, delayTime);
+    this->waitUntilPressed(debounce, delayTime);
+    this->waitUntilReleased(debounce, delayTime);
 }

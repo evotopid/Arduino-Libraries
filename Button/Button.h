@@ -63,44 +63,44 @@ class Button
          * @brief Waits until the button is pressed.
          * @details This function stops the current execution of
          * code, until the user presses the button down.
-         * @param filterNoise If set to true noise will be filtered.
-         *   You can disable this if you use hardware noise filtering
+         * @param debounce If set to true, the button will be debounced.
+         *   You can disable this if you use hardware debouncing
          *   on your button.
          * @param delayTime If you set this, this is the delay time
          *   between the checks of the button's state. Note that this
          *   value means miliseconds.
          * @return void
          */
-        void waitUntilPressed(bool filterNoise=true, int delayTime=5);
+        void waitUntilPressed(bool debounce=true, int delayTime=5);
         
         /**
          * @brief Waits until the button is released.
          * @details This function stops the current execution of
          * code, until the user releases the button.
-         * @param filterNoise If set to true noise will be filtered.
-         *   You can disable this if you use hardware noise filtering
+         * @param debounce If set to true, the button will be debounced.
+         *   You can disable this if you use hardware debouncing
          *   on your button.
          * @param delayTime If you set this, this is the delay time
          *   between the checks of the button's state. Note that this
          *   value means miliseconds.
          * @return void
          */
-        void waitUntilReleased(bool filterNoise=true, int delayTime=5);
+        void waitUntilReleased(bool debounce=true, int delayTime=5);
         
         /**
          * @brief Waits until the button was touched.
          * @details This function stops the current execution of
          * code, until the user presses the button down and
          * releases the button again.
-         * @param filterNoise If set to true noise will be filtered.
-         *   You can disable this if you use hardware noise filtering
+         * @param debounce If set to true, the button will be debounced.
+         *   You can disable this if you use hardware debouncing
          *   on your button.
          * @param delayTime If you set this, this is the delay time
          *   between the checks of the button's state. Note that this
          *   value means miliseconds.
          * @return void
          */
-        void waitUntilTouched(bool filterNoise=true, int delayTime=5);
+        void waitUntilTouched(bool debounce=true, int delayTime=5);
     private:
         int _pin;
         bool _invert;
