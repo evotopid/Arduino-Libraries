@@ -32,7 +32,7 @@ Button::Button(int pin)
     _pin = pin;
 }
 
-bool Button::getState(bool raw=false)
+bool Button::getState()
 {
     if (this->getStateRaw() == HIGH)
     {
@@ -49,39 +49,68 @@ int Button::getStateRaw()
     return digitalRead(_pin);
 }
 
-void Button::waitUntilPressed()
+void Button::waitUntilPressed(bool filterNoise)
 {
-    bool lastState = false;
-    while(this->getState() == false || lastState == false)
+    if (filterNoise)
     {
-        lastState = this->getState();
-        delay(5);
+        bool statesBuffer[8] = {false, false, false, false, false, false, false, false};
+        
+        while ( statesBuffer[0] == false || statesBuffer[1] == false || statesBuffer[2] == false || statesBuffer[3] == false || statesBuffer[4] == false || statesBuffer[5] == false || statesBuffer[6] == false || statesBuffer[7] == false ) 
+        {
+            // shift buffer
+            for (int i=0; i<7; i++)
+            {
+                statesBuffer[i] = statesBuffer[i+1];
+            }
+            
+            // read new data into buffer
+            statesBuffer[7] = this->getState();
+            
+            // delay a short time
+            delay(5);
+        }
+    }
+    else
+    {
+        while(this->getState() == false)
+        {
+            // do nothing
+        }
     }
 }
 
-void Button::waitUntilReleased()
+void Button::waitUntilReleased(bool filterNoise)
 {
-    bool lastState = true;
-    while(this->getState() == true || lastState == true)
+    if (filterNoise)
     {
-        lastState = this->getState();
-        delay(5);
+        bool statesBuffer[8] = {true, true, true, true, true, true, true, true};
+        
+        while ( statesBuffer[0] == true || statesBuffer[1] == true || statesBuffer[2] == true || statesBuffer[3] == true || statesBuffer[4] == true || statesBuffer[5] == true || statesBuffer[6] == true || statesBuffer[7] == true ) 
+        {
+            // shift buffer
+            for (int i=0; i<7; i++)
+            {
+                statesBuffer[i] = statesBuffer[i+1];
+            }
+            
+            // read new data into buffer
+            statesBuffer[7] = this->getState();
+            
+            // delay a short time
+            delay(5);
+        }
+    }
+    else
+    {
+        while(this->getState() == true)
+        {
+            // do nothing
+        }
     }
 }
 
-void Button::waitUntilTouched()
+void Button::waitUntilTouched(bool filterNoise)
 {
-    bool lastState = false;
-    while (this->getState() == false || lastState == false)
-    {
-        lastState = this->getState();
-        delay(5);
-    }
-    
-    lastState = true;
-    while (this->getState() == true || lastState == true)
-    {
-        lastState = this->getState();
-        delay(5);
-    }
+    this->waitUntilPressed();
+    this->waitUntilReleased();
 }

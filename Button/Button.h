@@ -58,29 +58,35 @@ class Button
          * @brief Waits until the button is pressed.
          * @details This function stops the current execution of
          * code, until the user presses the button down.
-         * The code has simple noise filtering. 
+         * @param filterNoise If set to true noise will be filtered.
+         *   You can disable this if you use hardware noise filtering
+         *   on your button.
          * @return void
          */
-        void waitUntilPressed();
+        void waitUntilPressed(bool filterNoise=true);
         
         /**
          * @brief Waits until the button is released.
          * @details This function stops the current execution of
          * code, until the user releases the button.
-         * The code has simple noise filtering.
+         * @param filterNoise If set to true noise will be filtered.
+         *   You can disable this if you use hardware noise filtering
+         *   on your button.
          * @return void
          */
-        void waitUntilReleased();
+        void waitUntilReleased(bool filterNoise=true);
         
         /**
          * @brief Waits until the button was touched.
          * @details This function stops the current execution of
          * code, until the user presses the button down and
          * releases the button again.
-         * The code has simple noise filtering.
+         * @param filterNoise If set to true noise will be filtered.
+         *   You can disable this if you use hardware noise filtering
+         *   on your button.
          * @return void
          */
-        void waitUntilTouched();
+        void waitUntilTouched(bool filterNoise=true);
     private:
         int _pin;
 };
