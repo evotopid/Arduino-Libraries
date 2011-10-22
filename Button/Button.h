@@ -61,9 +61,12 @@ class Button
          * @param filterNoise If set to true noise will be filtered.
          *   You can disable this if you use hardware noise filtering
          *   on your button.
+         * @param delayTime If you set this, this is the delay time
+         *   between the checks of the button's state. Note that this
+         *   value means miliseconds.
          * @return void
          */
-        void waitUntilPressed(bool filterNoise=true);
+        void waitUntilPressed(bool filterNoise=true, int delayTime=5);
         
         /**
          * @brief Waits until the button is released.
@@ -72,9 +75,12 @@ class Button
          * @param filterNoise If set to true noise will be filtered.
          *   You can disable this if you use hardware noise filtering
          *   on your button.
+         * @param delayTime If you set this, this is the delay time
+         *   between the checks of the button's state. Note that this
+         *   value means miliseconds.
          * @return void
          */
-        void waitUntilReleased(bool filterNoise=true);
+        void waitUntilReleased(bool filterNoise=true, int delayTime=5);
         
         /**
          * @brief Waits until the button was touched.
@@ -84,9 +90,12 @@ class Button
          * @param filterNoise If set to true noise will be filtered.
          *   You can disable this if you use hardware noise filtering
          *   on your button.
+         * @param delayTime If you set this, this is the delay time
+         *   between the checks of the button's state. Note that this
+         *   value means miliseconds.
          * @return void
          */
-        void waitUntilTouched(bool filterNoise=true);
+        void waitUntilTouched(bool filterNoise=true, int delayTime=5);
     private:
         int _pin;
 };

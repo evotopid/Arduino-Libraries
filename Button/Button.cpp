@@ -49,7 +49,7 @@ int Button::getStateRaw()
     return digitalRead(_pin);
 }
 
-void Button::waitUntilPressed(bool filterNoise)
+void Button::waitUntilPressed(bool filterNoise, int delayTime)
 {
     if (filterNoise)
     {
@@ -67,19 +67,20 @@ void Button::waitUntilPressed(bool filterNoise)
             statesBuffer[7] = this->getState();
             
             // delay a short time
-            delay(5);
+            delay(delayTime);
         }
     }
     else
     {
         while(this->getState() == false)
         {
-            // do nothing
+            // delay a short time
+            delay(delayTime);
         }
     }
 }
 
-void Button::waitUntilReleased(bool filterNoise)
+void Button::waitUntilReleased(bool filterNoise, int delayTime)
 {
     if (filterNoise)
     {
@@ -97,20 +98,21 @@ void Button::waitUntilReleased(bool filterNoise)
             statesBuffer[7] = this->getState();
             
             // delay a short time
-            delay(5);
+            delay(delayTime);
         }
     }
     else
     {
         while(this->getState() == true)
         {
-            // do nothing
+            // delay a short time
+            delay(delayTime);
         }
     }
 }
 
-void Button::waitUntilTouched(bool filterNoise)
+void Button::waitUntilTouched(bool filterNoise, int delayTime)
 {
-    this->waitUntilPressed();
-    this->waitUntilReleased();
+    this->waitUntilPressed(filterNoise, delayTime);
+    this->waitUntilReleased(filterNoise, delayTime);
 }
