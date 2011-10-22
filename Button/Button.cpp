@@ -26,10 +26,11 @@
 #include "WProgram.h"
 #include "Button.h"
 
-Button::Button(int pin)
+Button::Button(int pin, bool invert)
 {
     pinMode(pin, INPUT);
     _pin = pin;
+    _invert = invert;
 }
 
 bool Button::getState()
@@ -46,7 +47,21 @@ bool Button::getState()
 
 int Button::getStateRaw()
 {
-    return digitalRead(_pin);
+    if (_invert)
+    {
+        if (digitalRead(_pin) == HIGH)
+        {
+            return LOW;
+        }
+        else
+        {
+            return HIGH;
+        }
+    }
+    else
+    {
+        return digitalRead(_pin);
+    }
 }
 
 void Button::waitUntilPressed(bool filterNoise, int delayTime)

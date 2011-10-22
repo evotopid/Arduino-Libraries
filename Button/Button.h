@@ -34,9 +34,14 @@ class Button
         /**
          * @brief Creates a new Button instance.
          * @param pin The Arduino Pin of the input.
+         * @param invert if invert is set to false we asume,
+         *   that when the button is pressed the input pin is
+         *   HIGH otherwise LOW. If it's set to true we asume
+         *   that when the button is pressed the input pin is
+         *   LOW otherwise HIGH.
          * @return void
          */
-        Button(int pin);
+        Button(int pin, bool invert=false);
         
         /**
          * @brief Returns the current state of the button.
@@ -98,6 +103,7 @@ class Button
         void waitUntilTouched(bool filterNoise=true, int delayTime=5);
     private:
         int _pin;
+        bool _invert;
 };
 
 #endif
