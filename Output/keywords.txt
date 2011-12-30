@@ -1,0 +1,4 @@
+Output	KEYWORD1
+getState	KEYWORD2
+setState	KEYWORD2
+toggleState	KEYWORD2
