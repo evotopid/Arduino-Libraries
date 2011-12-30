@@ -13,12 +13,19 @@ Documentation
 For the documentation you will need [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
 Then run: ```doxygen DOXYFILE``` and your documentation will be created.
 
+Requirements
+============
+
+The libraries currently are working with Arduino 1.0.
+Older (and newer) versions would eventually need some modifications to work.
+
 Libraries
 =========
 
-Currently there is only one library here, but this will change:
+Currently there are only two libraries here, but this will change:
 
 * Button: A Library which helps you to manage user interactions with Buttons.
+* Output: A Library which helps you to manage your outputs with ease.
 
 License
 =======
