@@ -23,7 +23,7 @@
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
 
-#include "WProgram.h"
+#include "Arduino.h"
 #include "Button.h"
 
 Button::Button(int pin, bool invert)
