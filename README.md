@@ -1,8 +1,9 @@
 About
 =====
 
-Hi there, this repo contains some helpful Arduino Libraries, which I
-created because I wanted to develop easier with Arduino.
+Hi there, here are some helpful Arduino Libraries, which I
+created for my own Arduino projects and which I want to share, just for
+the case that someone also might use them.
 
 Of course there may be many things to increase, but if you find something
 like this just fill out an Issue.
@@ -24,7 +25,10 @@ Requirements
 
 The libraries are currently working with Arduino 1.0.
 
-Older (and newer) versions would eventually need some modifications to work.
+Newer versions should most probably work with the libraries, but older versions won't
+because in the release of Arduino 1.0 some things changed and this backward compatibility
+isn't nescesary, as everyone should be able to install the newest version of the
+Arduino IDE.
 
 
 Libraries
