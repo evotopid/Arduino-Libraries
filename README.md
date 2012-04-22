@@ -10,12 +10,13 @@ like this just fill out an Issue.
 Please note that more doc will come soon.
 
 
-Documentation
-=============
+API Documentation
+=================
 
-For the documentation you will need [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
+To create the API documentation you will need to have
+[Doxygen](http://www.stack.nl/~dimitri/doxygen/) installed on your computer.
 
-Then run: ```doxygen DOXYFILE``` and your documentation will be created.
+Then you can run: ```doxygen DOXYFILE``` and your documentation will be created.
 
 
 Requirements
